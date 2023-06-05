@@ -1,6 +1,11 @@
 import { UnsplashIamge } from "@/models/unsplash-image";
 import Image from "next/image";
 import Link from "next/link";
+import { Alert } from "@/components/bootstrap";
+
+export const metadata = {
+  title: "Static Fetching - NextJS 13.4 Image Gallery",
+};
 
 export default async function Page() {
   const response = await fetch(
@@ -14,6 +19,11 @@ export default async function Page() {
 
   return (
     <div className="d-flex flex-column align-item-center">
+      <Alert>
+        This page <strong>fetches and caches data at build time.</strong> Even
+        though the Unsplash API always returns a new image, we see the same
+        image after refreshing until we recompile the project again.
+      </Alert>
       <Image
         src={image.urls.raw}
         width={width}
