@@ -1,6 +1,4 @@
-import { withCoalescedInvoke } from "next/dist/lib/coalesced-function";
-
-export interface UnsplashIamge {
+export interface UnsplashImage {
   description: string;
   user: {
     username: string;
