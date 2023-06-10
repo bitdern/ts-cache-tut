@@ -1,9 +1,17 @@
 "use client";
 
-import { FormEvent } from "react";
+import { UnsplashImage } from "@/models/unsplash-image";
+import { FormEvent, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 export default function SearchPage() {
+  const [searchResults, setSearchResults] = useState<UnsplashImage[] | null>(
+    null
+  );
+  const [searchResultsLoading, setSearchResultsLoading] = useState(false);
+  const [searchResultsLoadingIsError, setSearchResultsLoadingIsError] =
+    useState(false);
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
