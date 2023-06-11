@@ -12,7 +12,7 @@ export default async function Page() {
     "https://api.unsplash.com/photos/random?client_id=" +
       process.env.UNSPLASH_ACCESS_KEY
   );
-  const image: UnsplashIamge = await response.json();
+  const image: UnsplashImage = await response.json();
 
   const width = Math.min(500, image.width);
   const height = (width / image.width) * image.height;
